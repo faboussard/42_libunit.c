@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   wrong_ft_itoa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dguillon <dguillon@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 15:24:15 by dguillon          #+#    #+#             */
-/*   Updated: 2023/11/22 15:53:19 by dguillon         ###   ########.fr       */
+/*   Updated: 2024/01/28 20:27:21 by dguillon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../header/libunit.h"
+#include "../header/tests.h"
 
-char *ft_itoa_KO(int i)
+char	*ft_itoa_ko(int i)
 {
-    printf("%s", "blabla");
+	i = 1;
+	return ("la");
 }

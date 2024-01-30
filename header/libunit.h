@@ -6,35 +6,33 @@
 /*   By: dguillon <dguillon@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 10:02:20 by dguillon          #+#    #+#             */
-/*   Updated: 2024/01/27 17:40:09 by dguillon         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:50:48 by dguillon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
 
-#include <stddef.h>
-#include "../libft/libft.h"
-#include <sys/wait.h>
+# include "../libft/libft.h"
+# include <ctype.h>
+# include <stddef.h>
+# include <string.h>
+# include <sys/wait.h>
 
-//#include "libft.h"
-#include <sys/wait.h>
+int		to_launch(const int action, char flags);
+void	result(int res, int b);
 
-#define RESULT(res) if (res == 0)\
-						 printf("\033[32m[OK]\033[0m\n");\
-						 else if (res == 1)\
-						 printf("\033[31m[KO]\033[0m\n");\
-						 else if (res == 7)\
-						 printf("\033[31m[SEGBUS]\033[0m\n");\
-						 else if (res == 11)\
-						 printf("[SEGV]\n");
-
-/*typedef enum
-{
-	ft_strlen,
-	ft_atoi,
-	ft_,
-
-}e_fonctions;*/
+# define ATOI "atoi"
+# define ITOA "itoa"
+# define LSTSIZE "lstsize"
+# define STRLEN "strlen"
+# define BASIC "basic"
+# define NILL "NULL"
+# define BIG "big"
+# define STRLEN_LAUNCH 1
+# define LSTSIZE_LAUNCH 2
+# define ITOA_LAUNCH 3
+# define ATOI_LAUNCH 4
+# define IS_ALPHA_LAUNCH 5
 
 #endif

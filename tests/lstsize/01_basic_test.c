@@ -1,27 +1,39 @@
-#include "../../header/tests.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: faboussa  <faboussa@student.42lyon.f>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/27 18:45:27 by faboussa          #+#    #+#             */
+/*   Updated: 2024/01/28 17:52:38 by faboussa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../header/libunit.h"
+#include "../../header/tests.h"
 
-//to erase
-#include <stdio.h>
-
-int basic_test_lstsize(int (*my_function)(t_list *lst), int (*your_function)(t_list *lst))
+int	basic_test_lstsize(int (*my_function)(t_list *lst),
+		int (*your_function)(t_list *lst))
 {
-    t_list *mylist;
-    int my_result;
-    int your_result;
-    int i;
+	t_list	*newlist;
+	void	*newcontent;
+	int		my_result;
+	int		your_result;
+	int		i;
 
-    mylist = NULL;
-    i = 0;
-    while (i < 3)
-    {
-        ft_lstadd_front(&mylist, ft_lstnew("salut"));
-        i++;
-    }
-    my_result = my_function(mylist);
-    your_result = your_function(mylist);
-    if (my_result - your_result == 0)
-        return (0);
-    else
-        return (-1);
+	i = 0;
+	while (i++ < 3)
+	{
+		newcontent = ft_lstnew("salut");
+		if (newcontent == NULL)
+			return (0);
+		ft_lstadd_front(&newlist, newcontent);
+	}
+	your_result = your_function(newlist);
+	my_result = my_function(newlist);
+	if (my_result - your_result == 0)
+		return (0);
+	else
+		return (-1);
 }

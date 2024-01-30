@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dguillon <dguillon@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 16:52:56 by faboussa          #+#    #+#             */
-/*   Updated: 2024/01/28 19:28:53 by dguillon         ###   ########.fr       */
+/*   Created: 2024/01/28 16:34:45 by faboussa          #+#    #+#             */
+/*   Updated: 2024/01/28 19:24:21 by dguillon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/libunit.h"
 #include "../../header/tests.h"
 
-int	atoi_launcher(char flags)
+int	isalpha_launcher(char flags)
 {
 	pid_t	pid;
 	int		passed_test;
@@ -34,7 +34,7 @@ int	atoi_launcher(char flags)
 		}
 		else if (pid == 0)
 		{
-			status = basic_test_atoi(&atoi, &ft_atoi);
+			status = basic_test_isalpha(&ft_isalpha, &ft_isalpha_ko);
 			if (status == 0)
 				exit(EXIT_SUCCESS);
 			else
@@ -55,7 +55,7 @@ int	atoi_launcher(char flags)
 			else if (WIFSIGNALED(status))
 				res = WTERMSIG(status);
 		}
-		ft_printf("ATOI : basic_tests : ");
+		ft_printf("isALPHA : basic_tests : ");
 		if (res == good)
 			result(res, 1);
 		else
@@ -71,7 +71,7 @@ int	atoi_launcher(char flags)
 		}
 		else if (pid == 0)
 		{
-			status = null_test_atoi(&atoi, &ft_atoi);
+			status = null_test_isalpha(&ft_isalpha, &ft_isalpha_ko);
 			if (status == 0)
 				exit(EXIT_SUCCESS);
 			else
@@ -94,7 +94,7 @@ int	atoi_launcher(char flags)
 					passed_test++;
 			}
 		}
-		ft_printf("ATOI : null_tests : ");
+		ft_printf("isALPHA : null_tests : ");
 		if (res == good)
 			result(res, 1);
 		else
@@ -110,7 +110,7 @@ int	atoi_launcher(char flags)
 		}
 		else if (pid == 0)
 		{
-			status = int_min_atoi(&atoi, &ft_atoi);
+			status = other_test_isalpha(&ft_isalpha, &ft_isalpha_ko);
 			if (status == 0)
 				exit(EXIT_SUCCESS);
 			else
@@ -123,7 +123,7 @@ int	atoi_launcher(char flags)
 			if (WIFEXITED(status))
 			{
 				res = WEXITSTATUS(status);
-				if (res == 0)
+				if (res == good)
 					passed_test++;
 				else if (res == 1)
 					res = 33;
@@ -131,7 +131,7 @@ int	atoi_launcher(char flags)
 			else if (WIFSIGNALED(status))
 				res = WTERMSIG(status);
 		}
-		ft_printf("ATOI : int_min_test : ");
+		ft_printf("isALPHA : big_line_test : ");
 		if (res == good)
 			result(res, 1);
 		else

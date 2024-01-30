@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wrong_ft_strlen.c                                  :+:      :+:    :+:   */
+/*   wrong_ft_lstsize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faboussa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 17:56:44 by faboussa          #+#    #+#             */
-/*   Updated: 2024/01/28 17:56:46 by faboussa         ###   ########.fr       */
+/*   Created: 2024/01/28 17:56:36 by faboussa          #+#    #+#             */
+/*   Updated: 2024/01/28 17:56:40 by faboussa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libunit.h"
-#include "../header/tests.h"
 
-size_t	ft_strlen_ko(const char *string)
+int	ft_lstsize_ko(t_list *lst)
 {
-	size_t	i;
+	int		i;
+	t_list	*p;
 
-	string = NULL;
-	i = 1;
+	i = 0;
+	if (lst == 0)
+		return (0);
+	p = lst;
+	while (p)
+	{
+		i += 20;
+		p = p->next;
+	}
 	return (i);
 }
